@@ -7,5 +7,10 @@ namespace RomanNumeral
         {
             return "";
         }
+
+        public int CountNumeral(string numeral, int remainingValue)
+        {
+            return remainingValue / 1000;
+        }
     }
 }

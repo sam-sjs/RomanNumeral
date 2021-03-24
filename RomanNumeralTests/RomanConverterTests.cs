@@ -17,5 +17,18 @@ namespace RomanNumeralTests
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void CountNumeral_WhenGivenNumeralAndRemainingValue_ReturnsNumeralCount()
+        {
+            RomanConverter converter = new RomanConverter();
+            string numeral = "M";
+            int remainingValue = 4935;
+            int expected = 4;
+
+            int actual = converter.CountNumeral(numeral, remainingValue);
+
+            Assert.Equal(expected, actual);
+        }
     }   
 }
