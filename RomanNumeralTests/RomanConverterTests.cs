@@ -1,6 +1,6 @@
+using System.Diagnostics;
 using RomanNumeral;
 using Xunit;
-using Xunit.Sdk;
 
 namespace RomanNumeralTests
 {
@@ -18,13 +18,12 @@ namespace RomanNumeralTests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void CountNumeral_WhenGivenNumeralAndRemainingValue_ReturnsNumeralCount()
+        [Theory]
+        [InlineData("M", 4935, 4)]
+        [InlineData("D", 876, 1)]
+        public void CountNumeral_WhenGivenNumeralAndRemainingValue_ReturnsNumeralCount(string numeral, int remainingValue, int expected)
         {
             RomanConverter converter = new RomanConverter();
-            string numeral = "M";
-            int remainingValue = 4935;
-            int expected = 4;
 
             int actual = converter.CountNumeral(numeral, remainingValue);
 

@@ -10,7 +10,9 @@ namespace RomanNumeral
 
         public int CountNumeral(string numeral, int remainingValue)
         {
-            return remainingValue / 1000;
+            if (numeral == "D") return remainingValue / 500;
+            if (numeral == "M") return remainingValue / 1000;
+            return 0;
         }
     }
 }
