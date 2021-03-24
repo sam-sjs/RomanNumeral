@@ -1,4 +1,3 @@
-using System;
 using RomanNumeral;
 using Xunit;
 
@@ -24,16 +23,17 @@ namespace RomanNumeralTests
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void SeparateLastDigit_WhenGivenInt_ReturnsLastDigit()
+        [Theory]
+        [InlineData(5, 5)]
+        [InlineData(15, 5)]
+        [InlineData(3298473, 3)]
+        public void SeparateLastDigit_WhenGivenInt_ReturnsLastDigit(int input, int expected)
         {
             RomanConverter converter = new RomanConverter();
-            int input = 5;
-            int expected = 5;
 
             int actual = converter.SeparateLastDigit(input);
 
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual); 
         }
     }
 }

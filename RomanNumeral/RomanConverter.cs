@@ -22,7 +22,7 @@ namespace RomanNumeral
 
         public int SeparateLastDigit(int input)
         {
-            return 5;
+            return input % 10;
         }
     }
 }
