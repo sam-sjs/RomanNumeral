@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 namespace RomanNumeral
 {
     public class RomanConverter
@@ -10,9 +12,13 @@ namespace RomanNumeral
 
         public int CountNumeral(string numeral, int remainingValue)
         {
-            if (numeral == "D") return remainingValue / 500;
-            if (numeral == "M") return remainingValue / 1000;
-            return 0;
+            Dictionary<string, int> numeralValue = new Dictionary<string, int>
+            {
+                {"M", 1000},
+                {"D", 500},
+                {"C", 100}
+            };
+            return remainingValue / numeralValue[numeral];
         }
     }
 }

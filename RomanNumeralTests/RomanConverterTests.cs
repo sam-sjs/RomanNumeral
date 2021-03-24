@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using RomanNumeral;
 using Xunit;
 
@@ -21,6 +20,7 @@ namespace RomanNumeralTests
         [Theory]
         [InlineData("M", 4935, 4)]
         [InlineData("D", 876, 1)]
+        [InlineData("C", 342, 3)]
         public void CountNumeral_WhenGivenNumeralAndRemainingValue_ReturnsNumeralCount(string numeral, int remainingValue, int expected)
         {
             RomanConverter converter = new RomanConverter();
