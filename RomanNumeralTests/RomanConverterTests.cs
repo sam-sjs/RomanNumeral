@@ -12,6 +12,7 @@ namespace RomanNumeralTests
         [InlineData(10, "X")]
         [InlineData(50, "L")]
         [InlineData(100, "C")]
+        [InlineData(500, "D")]
         public void Convert_WhenGivenInt_ReturnsNumeralAsString(int input, string expected)
         {
             RomanConverter converter = new RomanConverter();
