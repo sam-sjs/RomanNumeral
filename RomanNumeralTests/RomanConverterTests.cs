@@ -24,19 +24,6 @@ namespace RomanNumeralTests
         }
 
         [Theory]
-        [InlineData(5, 5)]
-        [InlineData(15, 5)]
-        [InlineData(3298473, 3)]
-        public void SeparateLastDigit_WhenGivenInt_ReturnsLastDigit(int input, int expected)
-        {
-            RomanConverter converter = new RomanConverter();
-
-            int actual = converter.SeparateLastDigit(input);
-
-            Assert.Equal(expected, actual); 
-        }
-
-        [Theory]
         [InlineData(4000, 4)]
         [InlineData(4846, 4)]
         [InlineData(846, 1)]

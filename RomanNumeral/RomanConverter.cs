@@ -20,11 +20,6 @@ namespace RomanNumeral
             return numeralMapping[input];
         }
 
-        public int SeparateLastDigit(int input)
-        {
-            return input % 10;
-        }
-
         public int SplitNumeralValues(int input)
         {
             return input switch
