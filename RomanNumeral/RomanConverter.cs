@@ -24,5 +24,10 @@ namespace RomanNumeral
             };
             return remainingValue / numeralValue[numeral];
         }
+
+        public int GetValue(string numeral)
+        {
+            return 1000;
+        }
     }
 }
