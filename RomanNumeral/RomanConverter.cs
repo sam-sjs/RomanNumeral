@@ -6,7 +6,7 @@ namespace RomanNumeral
     {
         public string Convert(int input)
         {
-            var numeralMapping = new Dictionary<int, string>()
+            var numeralMapping = new Dictionary<int, string>
             {
                 {0, ""},
                 {1, "I"},
@@ -23,6 +23,11 @@ namespace RomanNumeral
         public int SeparateLastDigit(int input)
         {
             return input % 10;
+        }
+
+        public int SplitNumeralValues(int input)
+        {
+            return input / 1000;
         }
     }
 }
