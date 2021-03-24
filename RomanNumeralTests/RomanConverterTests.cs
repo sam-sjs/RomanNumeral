@@ -21,6 +21,7 @@ namespace RomanNumeralTests
         [InlineData("M", 4935, 4)]
         [InlineData("D", 876, 1)]
         [InlineData("C", 342, 3)]
+        [InlineData("L", 82, 1)]
         public void CountNumeral_WhenGivenNumeralAndRemainingValue_ReturnsNumeralCount(string numeral, int remainingValue, int expected)
         {
             RomanConverter converter = new RomanConverter();
