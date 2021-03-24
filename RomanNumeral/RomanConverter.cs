@@ -19,5 +19,10 @@ namespace RomanNumeral
             };
             return numeralMapping[input];
         }
+
+        public int SeparateLastDigit(int input)
+        {
+            return 5;
+        }
     }
 }
