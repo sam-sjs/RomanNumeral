@@ -1,14 +1,18 @@
+using System.Collections.Generic;
+
 namespace RomanNumeral
 {
     public class RomanConverter
     {
         public string Convert(int input)
         {
-            if (input == 1)
+            var numeralMapping = new Dictionary<int, string>()
             {
-                return "I";
-            }
-            return "";
+                {0, ""},
+                {1, "I"},
+                {5, "V"}
+            };
+            return numeralMapping[input];
         }
     }
 }
