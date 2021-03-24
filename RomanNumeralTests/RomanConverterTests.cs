@@ -1,4 +1,3 @@
-using System;
 using RomanNumeral;
 using Xunit;
 
@@ -37,12 +36,17 @@ namespace RomanNumeralTests
             Assert.Equal(expected, actual); 
         }
 
-        [Fact]
-        public void SplitNumeralValues_WhenGivenInt_ReturnsNumberOfNumeralOccurrences()
+        [Theory]
+        [InlineData(4000, 4)]
+        [InlineData(4846, 4)]
+        [InlineData(846, 1)]
+        [InlineData(398, 3)]
+        [InlineData(76, 1)]
+        [InlineData(44, 4)]
+        [InlineData(7, 7)]
+        public void SplitNumeralValues_WhenGivenInt_ReturnsNumberOfNumeralOccurrences(int input, int expected)
         {
             RomanConverter converter = new RomanConverter();
-            int input = 4000;
-            int expected = 4;
 
             int actual = converter.SplitNumeralValues(input);
 

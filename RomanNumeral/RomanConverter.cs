@@ -27,7 +27,15 @@ namespace RomanNumeral
 
         public int SplitNumeralValues(int input)
         {
-            return input / 1000;
+            return input switch
+            {
+                < 10 => input,
+                < 50 => input / 10,
+                < 100 => input / 50,
+                < 500 => input / 100,
+                < 1000 => input / 500,
+                _ => input / 1000
+            };
         }
     }
 }
