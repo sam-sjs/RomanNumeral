@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 
 namespace RomanNumeral
@@ -7,25 +8,27 @@ namespace RomanNumeral
     {
         public string Convert(int input)
         {
-            return "";
+            char numeral = 'M';
+            if (input == 0) return "";
+            return new String(numeral, CountNumeral(numeral, input));
         }
 
-        public int CountNumeral(string numeral, int remainingValue)
+        public int CountNumeral(char numeral, int remainingValue)
         {
             return remainingValue / GetValue(numeral);
         }
 
-        public int GetValue(string numeral)
+        public int GetValue(char numeral)
         {
-            Dictionary<string, int> numeralValue = new Dictionary<string, int>
+            Dictionary<char, int> numeralValue = new Dictionary<char, int>
             {
-                {"M", 1000},
-                {"D", 500},
-                {"C", 100},
-                {"L", 50},
-                {"X", 10},
-                {"V", 5},
-                {"I", 1}
+                {'M', 1000},
+                {'D', 500},
+                {'C', 100},
+                {'L', 50},
+                {'X', 10},
+                {'V', 5},
+                {'I', 1}
             };
             return numeralValue[numeral];
         }
