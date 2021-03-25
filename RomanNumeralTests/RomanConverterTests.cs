@@ -1,4 +1,3 @@
-using System;
 using RomanNumeral;
 using Xunit;
 
@@ -41,14 +40,19 @@ namespace RomanNumeralTests
         //     
         // }
 
-        [Fact]
-        public void GetValue_GivenStringNumeral_ReturnsNumeralValue()
+        [Theory]
+        [InlineData("M", 1000)]
+        [InlineData("D", 500)]
+        [InlineData("C", 100)]
+        [InlineData("L", 50)]
+        [InlineData("X", 10)]
+        [InlineData("V", 5)]
+        [InlineData("I", 1)]
+        public void GetValue_GivenStringNumeral_ReturnsNumeralValue(string numeral, int expected)
         {
             RomanConverter converter = new RomanConverter();
-            string input = "M";
-            int expected = 1000;
 
-            int actual = converter.GetValue(input);
+            int actual = converter.GetValue(numeral);
 
             Assert.Equal(expected, actual);
         }
