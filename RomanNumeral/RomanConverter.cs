@@ -9,7 +9,6 @@ namespace RomanNumeral
         public string Convert(int input)
         {
             int remainingInput = input;
-            if (input == 0) return "";
             string completedNumeral = "";
             char[] numerals = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
             foreach (char numeral in numerals)
