@@ -8,9 +8,18 @@ namespace RomanNumeral
     {
         public string Convert(int input)
         {
-            char numeral = 'M';
+            int remainingInput = input;
             if (input == 0) return "";
-            return new String(numeral, CountNumeral(numeral, input));
+            string completedNumeral = "";
+            char[] numerals = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
+            foreach (char numeral in numerals)
+            {
+                int currentNumeralCount = CountNumeral(numeral, remainingInput);
+                completedNumeral += new string(numeral, currentNumeralCount);
+                remainingInput -= currentNumeralCount * GetValue(numeral);
+            }
+
+            return completedNumeral;
         }
 
         public int CountNumeral(char numeral, int remainingValue)

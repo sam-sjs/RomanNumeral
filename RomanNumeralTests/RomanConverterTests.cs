@@ -8,6 +8,7 @@ namespace RomanNumeralTests
         [Theory]
         [InlineData(0, "")]
         [InlineData(4000, "MMMM")]
+        [InlineData(300, "CCC")]
         public void Convert_WhenGiven0_ReturnsEmptyString(int input, string expected)
         {
             RomanConverter converter = new RomanConverter();
