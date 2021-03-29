@@ -9,6 +9,7 @@ namespace RomanNumeralTests
         [InlineData(0, "")]
         [InlineData(4000, "MMMM")]
         [InlineData(300, "CCC")]
+        [InlineData(2100, "MMC")]
         public void Convert_WhenGiven0_ReturnsEmptyString(int input, string expected)
         {
             RomanConverter converter = new RomanConverter();
@@ -43,11 +44,11 @@ namespace RomanNumeralTests
         [InlineData('X', 10)]
         [InlineData('V', 5)]
         [InlineData('I', 1)]
-        public void GetValue_GivenStringNumeral_ReturnsNumeralValue(char numeral, int expected)
+        public void GetNumeralValue_GivenNumeralAsChar_ReturnsValueAsInt(char numeral, int expected)
         {
             RomanConverter converter = new RomanConverter();
 
-            int actual = converter.GetValue(numeral);
+            int actual = converter.GetNumeralValue(numeral);
 
             Assert.Equal(expected, actual);
         }

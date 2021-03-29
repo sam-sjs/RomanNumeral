@@ -8,14 +8,13 @@ namespace RomanNumeral
     {
         public string Convert(int input)
         {
-            int remainingInput = input;
+            int remainingValue = input;
             string completedNumeral = "";
             char[] numerals = {'M', 'D', 'C', 'L', 'X', 'V', 'I'};
             foreach (char numeral in numerals)
             {
-                int currentNumeralCount = CountNumeral(numeral, remainingInput);
-                completedNumeral += new string(numeral, currentNumeralCount);
-                remainingInput -= currentNumeralCount * GetValue(numeral);
+                completedNumeral += ProcessNumeral(numeral, remainingValue);
+                remainingValue -= CountNumeral(numeral, remainingValue) * GetNumeralValue(numeral);
             }
 
             return completedNumeral;
@@ -23,10 +22,10 @@ namespace RomanNumeral
 
         public int CountNumeral(char numeral, int remainingValue)
         {
-            return remainingValue / GetValue(numeral);
+            return (int)Math.Floor((double)remainingValue / GetNumeralValue(numeral));
         }
 
-        public int GetValue(char numeral)
+        public int GetNumeralValue(char numeral)
         {
             Dictionary<char, int> numeralValue = new Dictionary<char, int>
             {
@@ -39,6 +38,12 @@ namespace RomanNumeral
                 {'I', 1}
             };
             return numeralValue[numeral];
+        }
+
+        public string ProcessNumeral(char numeral, int remainingValue)
+        {
+            int currentNumeralCount = CountNumeral(numeral, remainingValue);
+            return new string(numeral, currentNumeralCount);
         }
     }
 }
